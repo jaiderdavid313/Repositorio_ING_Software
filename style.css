@@ -1,0 +1,165 @@
+/* Estilos Generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio del eje cruzado (vertical) */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; /* Espaciado general */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Ancho máximo para el contenido */
+    margin-top: 50px; /* Para separarlo de la parte superior */
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 30px;
+}
+
+/* Sección de Entrada de Tareas */
+.task-input-section {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex-grow: 1; /* Ocupa todo el espacio disponible */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px; /* Bordes redondeados solo a la izquierda */
+    font-size: 1rem;
+    outline: none; /* Quitar el borde de enfoque por defecto */
+}
+
+#taskInput:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+#addTaskButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 5px 5px 0; /* Bordes redondeados solo a la derecha */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el icono y el texto */
+}
+
+#addTaskButton:hover {
+    background-color: #45a049;
+}
+
+/* Estadísticas de Tareas */
+.task-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #e8f5e9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: #388e3c;
+}
+
+.task-stats span {
+    font-weight: bold;
+}
+
+
+/* Lista de Tareas */
+#taskList {
+    list-style: none; /* Quitar los puntos de lista por defecto */
+    padding: 0;
+    margin: 0;
+}
+
+#taskList li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between; /* Espacio entre el texto y los botones */
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+#taskList li.completed {
+    text-decoration: line-through; /* Tachar texto si está completada */
+    color: #888;
+    background-color: #e0e0e0;
+    opacity: 0.8;
+}
+
+#taskList li .task-text {
+    flex-grow: 1; /* El texto de la tarea ocupa el espacio restante */
+    cursor: pointer; /* Indica que se puede hacer clic para completar */
+}
+
+#taskList li .task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+#taskList li .task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #777;
+    transition: color 0.2s ease;
+}
+
+#taskList li .task-actions button.complete-btn:hover {
+    color: #4CAF50; /* Verde al pasar el ratón */
+}
+
+#taskList li .task-actions button.delete-btn:hover {
+    color: #f44336; /* Rojo al pasar el ratón */
+}
+
+/* Media Queries para Responsividad (RNF1) */
+@media (max-width: 600px) {
+    .container {
+        margin-top: 20px;
+        padding: 20px;
+    }
+
+    .task-input-section {
+        flex-direction: column; /* Apilar input y botón en pantallas pequeñas */
+    }
+
+    #taskInput {
+        border-radius: 5px; /* Bordes redondeados en todos los lados */
+        margin-bottom: 10px;
+    }
+
+    #addTaskButton {
+        border-radius: 5px; /* Bordes redondeados en todos los lados */
+        justify-content: center; /* Centrar el contenido del botón */
+    }
+
+    .task-stats {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
